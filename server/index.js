@@ -15,6 +15,9 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes)
+app.get((req, res) => {
+    res.send("Ija Posty Ghramek Bahthana")
+})
 
 const CONNECTION_URL = "mongodb+srv://hamza_bouyahya:hamza123@cluster0.qait5.mongodb.net/memories?retryWrites=true&w=majority";
 

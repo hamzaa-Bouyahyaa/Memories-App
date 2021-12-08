@@ -53,4 +53,14 @@ export default makeStyles({
     display: 'block',
     textAlign: 'initial',
   },
+  message: {
+    height: '380',
+    width: '200',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    WebkitLineClamp: 2, /* number of lines to show */
+    lineClamp: 2,
+    WebkitBoxOrient: 'vertical'
+  }
 });
