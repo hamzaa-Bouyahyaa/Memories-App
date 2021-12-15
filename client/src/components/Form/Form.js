@@ -64,12 +64,13 @@ function Form({ currentId, setCurrentId }) {
                 Please <Link to='/auth' className={classes.textDecorationSign}>Sign in</Link> to create your own memories and like other's memories
             </Typography>
         </Paper>) : (<Paper className={classes.paper} elevation={6}>
-            <form className={`${classes.root} ${classes.form}`} autoComplete='off' noValidate onSubmit={handleSubmit} >
+            <form className={`${classes.root} ${classes.form}`} autoComplete='off' noValidate onSubmit={handleSubmit} encType="multiple/form-data" >
                 <Typography variant='h6'>
                     {currentId ? `Editing` : `Creating`} a Memory
                 </Typography>
 
                 <TextField
+                    id='title'
                     name='title'
                     variant='outlined'
                     fullWidth
@@ -78,6 +79,7 @@ function Form({ currentId, setCurrentId }) {
                     onChange={(e) => setpostData({ ...postData, title: e.target.value })}
                 />
                 <TextField
+                    id='message'
                     name='message'
                     variant='outlined'
                     fullWidth
@@ -86,6 +88,7 @@ function Form({ currentId, setCurrentId }) {
                     onChange={(e) => setpostData({ ...postData, message: e.target.value })}
                 />
                 <TextField
+                    id='tags'
                     name='tags'
                     variant='outlined'
                     fullWidth
@@ -94,10 +97,13 @@ function Form({ currentId, setCurrentId }) {
                     onChange={(e) => setpostData({ ...postData, tags: e.target.value.split(",") })}
                 />
                 <div className={classes.fileInput}>
-                    <FileBase
+                    <input
                         type='file'
-                        multiple={false}
-                        onDone={({ base64 }) => setpostData({ ...postData, selectedFile: base64 })}
+                        filename="selectedFile"
+                        onChange={(e) => {
+                            setpostData({ ...postData, selectedFile: e.target.files[0] })
+
+                        }}
                     />
                 </div>
                 {error && (

@@ -48,13 +48,18 @@ export const createPost = (post, navigate) => async (dispatch) => {
     try {
 
         dispatch({ type: START_LOADING })
-        const { data } = await api.createPost(post);
+        const formData = new FormData();
+        formData.append('title', post.title);
+        formData.append('message', post.message);
+        formData.append('selectedFile', post.selectedFile);
+        formData.append('tags', post.tags);
+        const { data } = await api.createPost(formData);
         navigate(`/posts/${data._id}`);
         await dispatch({ type: CREATE, payload: data });
 
     } catch (error) {
         console.log(error);
-        window.location.reload()
+        // window.location.reload()
         await dispatch(posterror(error.response?.data.message))
     }
 }
@@ -65,8 +70,13 @@ export const posterror = (error) => async (dispatch) => {
 
 export const updatePost = (id, post) => async (dispatch) => {
     try {
-        const { data } = await api.updatePost(id, post);
-        dispatch({ type: UPDATE, payload: data })
+        const formData = new FormData();
+        formData.append('title', post.title);
+        formData.append('message', post.message);
+        formData.append('selectedFile', post.selectedFile);
+        formData.append('tags', post.tags);
+        const { data } = await api.updatePost(id, formData);
+        await dispatch({ type: UPDATE, payload: data })
     } catch (error) {
         console.log(error)
     }

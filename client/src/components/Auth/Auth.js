@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { signin, signup } from '../../actions/auth';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import './Auth.scss'
+import './Auth.css'
 import Alert from '@material-ui/lab/Alert';
 
 

@@ -45,36 +45,36 @@ export const getPost = async (req, res) => {
     }
 }
 
-export const createPosts = async (req, res) => {
+// export const createPosts = async (req, res) => {
 
-    const post = req.body;
+//     const post = req.body;
 
-    try {
-        if (req.body.title == '' || req.body.message == '' || req.body.tags == '')
-            return res.status(400).json({ message: 'Please fill all of it to create your own memory' })
+//     try {
+//         if (req.body.title == '' || req.body.message == '' || req.body.tags == '')
+//             return res.status(400).json({ message: 'Please fill all of it to create your own memory' })
 
-        const newPost = new PostMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString() });
-        await newPost.save()
-        res.status(201).json(newPost)
+//         const newPost = new PostMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString() });
+//         await newPost.save()
+//         res.status(201).json(newPost)
 
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+//     } catch (error) {
+//         res.status(404).json({ message: error.message });
+//     }
 
-}
+// }
 
 
-export const updatePost = async (req, res) => {
-    const { id: _id } = req.params;
-    const post = req.body
+// export const updatePost = async (req, res) => {
+//     const { id: _id } = req.params;
+//     const post = req.body
 
-    if (!mongoose.Types.ObjectId.isValid(_id)) {
-        return res.status(404).send('No post with that id')
-    }
-    const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, { new: true });
+//     if (!mongoose.Types.ObjectId.isValid(_id)) {
+//         return res.status(404).send('No post with that id')
+//     }
+//     const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, { new: true });
 
-    res.json(updatedPost);
-}
+//     res.json(updatedPost);
+// }
 
 export const deletePost = async (req, res) => {
     const { id: _id } = req.params;

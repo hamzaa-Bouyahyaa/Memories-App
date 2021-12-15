@@ -22,6 +22,18 @@ const Home = () => {
 
 
 
+
+
+    const handleAdd = (tag) => setTags([...tags, tag])
+
+    const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete))
+
+    const classes = useStyles()
+    const query = useQuery();
+    const navigate = useNavigate();
+    const page = query.get('page') || 1;
+    const searchQuery = query.get('searchQuery')
+
     const searchPost = () => {
         if (search.trim() || tags) {
             //dispatch --> fetch search posts
@@ -34,20 +46,10 @@ const Home = () => {
     }
 
     const handleKeyPress = (e) => {
-        if (e.keyCode === 13) {
+        if (e.keyCode === "Enter") {
             searchPost()
         }
     }
-
-    const handleAdd = (tag) => setTags([...tags, tag])
-
-    const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete))
-
-    const classes = useStyles()
-    const query = useQuery();
-    const navigate = useNavigate();
-    const page = query.get('page') || 1;
-    const searchQuery = query.get('searchQuery')
 
 
     return (
