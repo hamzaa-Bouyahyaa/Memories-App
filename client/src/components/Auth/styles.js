@@ -1,15 +1,15 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     padding: theme.spacing(2),
   },
   root: {
-    '& .MuiTextField-root': {
+    "& .MuiTextField-root": {
       margin: theme.spacing(1),
     },
   },
@@ -18,7 +18,7 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -29,17 +29,16 @@ export default makeStyles((theme) => ({
   },
   retourBtn: {
     marginTop: theme.spacing(5),
-    borderColor: '#fff',
-    width: '40vh',
-    backgroundColor: 'rgba(0,183,255, 1)',
-    display: 'flex',
-    justifyContent: 'center',
-    color: '#fff',
+    borderColor: "#fff",
+    width: "40vh",
+    backgroundColor: "#3F51B5",
+    display: "flex",
+    justifyContent: "center",
+    color: "#fff",
     padding: theme.spacing(2),
-    fontSize: '18px'
+    fontSize: "18px",
   },
   alert: {
-    marginTop: theme.spacing(2)
-  }
-
+    marginTop: theme.spacing(2),
+  },
 }));

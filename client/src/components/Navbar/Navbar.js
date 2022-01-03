@@ -5,6 +5,7 @@ import memories from "../../images/memories-Logo.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
+import DarkMode from "../../DarkMode/DarkMode";
 
 function Navbar() {
   const classes = useStyles();
@@ -86,6 +87,7 @@ function Navbar() {
             Sign in
           </Button>
         )}
+        <DarkMode />
       </Toolbar>
     </AppBar>
   );
