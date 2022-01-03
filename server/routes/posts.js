@@ -26,7 +26,7 @@ router.get('/', getPosts);
 router.get('/search', getPostsBySearch)
 router.post('/', auth, uploads.single('selectedFile'), async (req, res) => {
 
-    const { title, message, tags } = req.body;
+    const { title, message, tags, name } = req.body;
     const selectedFile = req.file
 
     try {
@@ -38,6 +38,7 @@ router.post('/', auth, uploads.single('selectedFile'), async (req, res) => {
             message,
             selectedFile: selectedFile.originalname,
             tags,
+            name,
             creator: req.userId, createdAt: new Date().toISOString()
         });
         await newPost.save()
@@ -52,7 +53,7 @@ router.post('/', auth, uploads.single('selectedFile'), async (req, res) => {
 router.get('/:id', getPost)
 router.patch('/:id', auth, uploads.single('selectedFile'), async (req, res) => {
     const { id: _id } = req.params;
-    const { title, message, tags } = req.body;
+    const { title, message, tags, name } = req.body;
     const selectedFile = req.file
 
     if (!mongoose.Types.ObjectId.isValid(_id)) {
@@ -62,7 +63,8 @@ router.patch('/:id', auth, uploads.single('selectedFile'), async (req, res) => {
         title,
         message,
         selectedFile: selectedFile.originalname,
-        tags
+        tags,
+        name
     }, { new: true });
 
     res.json(updatedPost);
