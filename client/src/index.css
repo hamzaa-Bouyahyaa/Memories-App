@@ -20,6 +20,6 @@ body.light {
 
 body.dark {
   --background-color: var(--blue);
-  --text-color: var(--white);
+  --text-color: var(--blue);
   --font-weight: 500;
 }
