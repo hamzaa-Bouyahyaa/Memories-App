@@ -117,7 +117,7 @@ function Post({ post, setCurrentId }) {
           user?.result?.googleId === post.creator) && (
           <Button
             size="small"
-            color="primary"
+            color="secondary"
             onClick={() => {
               dispatch(deletePost(post._id));
             }}
