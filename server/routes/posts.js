@@ -5,6 +5,7 @@ import {
   deletePost,
   likePost,
   getPost,
+  commentPost,
 } from "../controllers/posts.js";
 import auth from "../middleware/auth.js";
 import multer from "multer";
@@ -82,5 +83,6 @@ router.patch("/:id", auth, uploads.single("selectedFile"), async (req, res) => {
 });
 router.delete("/:id", auth, deletePost);
 router.patch("/:id/likePost", auth, likePost);
+router.post("/:id/commentPost", auth, commentPost);
 
 export default router;

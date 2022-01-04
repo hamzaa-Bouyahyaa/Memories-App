@@ -11,3 +11,4 @@ export const END_LOADING = "END_LOADING";
 export const FETCH_POST = "FETCH_POST";
 export const AUTHERROR = "AUTHERROR";
 export const POSTERROR = "POSTERROR";
+export const COMMENT = "COMMENT";
