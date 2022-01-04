@@ -1,4 +1,7 @@
 .btn:hover {
     color: #000;
-    background: red;
+}
+
+.btnDark:hover {
+    color: #fff;
 }

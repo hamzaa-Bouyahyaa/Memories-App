@@ -61,6 +61,7 @@ router.patch("/:id", auth, uploads.single("selectedFile"), async (req, res) => {
   const { id: _id } = req.params;
   const { title, message, tags, name } = req.body;
   const selectedFile = req.file;
+  const Tags = tags.split(",");
 
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res.status(404).send("No post with that id");
@@ -71,7 +72,7 @@ router.patch("/:id", auth, uploads.single("selectedFile"), async (req, res) => {
       title,
       message,
       selectedFile: selectedFile.originalname,
-      tags,
+      tags: Tags,
       name,
     },
     { new: true }

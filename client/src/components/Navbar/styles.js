@@ -28,6 +28,11 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
     width: "400px",
   },
+  unsigned: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "140px",
+  },
   userName: {
     display: "flex",
     alignItems: "center",

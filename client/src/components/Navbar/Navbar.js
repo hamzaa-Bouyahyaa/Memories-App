@@ -76,18 +76,21 @@ function Navbar() {
             >
               Logout
             </Button>
+            <DarkMode />
           </div>
         ) : (
-          <Button
-            component={Link}
-            to="/auth"
-            variant="contained"
-            color="primary"
-          >
-            Sign in
-          </Button>
+          <div className={classes.unsigned}>
+            <Button
+              component={Link}
+              to="/auth"
+              variant="contained"
+              color="primary"
+            >
+              Sign in
+            </Button>
+            <DarkMode />
+          </div>
         )}
-        <DarkMode />
       </Toolbar>
     </AppBar>
   );
